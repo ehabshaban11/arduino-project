@@ -18,3 +18,11 @@
 int ledPins[] = {LED_RED_PIN, LED_YELLOW_PIN, LED_GREEN_PIN, LED_BLUE_PIN};
 int buttonPins[] = {BUTTON_RED_PIN, BUTTON_YELLOW_PIN, BUTTON_GREEN_PIN, BUTTON_BLUE_PIN};
 int litLeds[3];
+
+void setup() {
+  for (int i = 0; i < NUM_LEDS; i++) {
+    pinMode(ledPins[i], OUTPUT);
+    pinMode(buttonPins[i], INPUT_PULLUP);
+  }
+  pinMode(BUZZER_PIN, OUTPUT);
+}
