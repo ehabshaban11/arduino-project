@@ -64,4 +64,41 @@ void loop() {
   tone(BUZZER_PIN, 1000);
   delay(200);
   noTone(BUZZER_PIN);
+  bool isCorrect = true;
+  unsigned long startTime = millis();
+  unsigned long endTime = startTime;
+
+  int pressedButtons[3] = {-1, -1, -1};
+
+  for (int i = 0; i < 3; i++) {
+    bool buttonPressed = false;
+
+    while (!buttonPressed) {
+      for (int j = 0; j < NUM_LEDS; j++) {
+        if (digitalRead(buttonPins[j]) == LOW) {
+          buttonPressed = true;
+          pressedButtons[i] = j;
+
+          while (digitalRead(buttonPins[j]) == LOW);
+          endTime = millis();
+        }
+      }
+    }
+  }
+
+  for (int i = 0; i < 3; i++) {
+    bool isMatch = false;
+    for (int j = 0; j < 3; j++) {
+      if (pressedButtons[i] == litLeds[j]) {
+        isMatch = true;
+        litLeds[j] = -1;
+        break;
+      }
+    }
+    if (!isMatch) {
+      isCorrect = false;
+      break;
+    }
+  }
+
 
