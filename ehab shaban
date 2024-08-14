@@ -26,3 +26,8 @@ void setup() {
   }
   pinMode(BUZZER_PIN, OUTPUT);
 }
+void loop() {
+  for (int i = 0; i < NUM_LEDS; i++) {
+    digitalWrite(ledPins[i], LOW);
+  }
+
