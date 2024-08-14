@@ -30,4 +30,34 @@ void loop() {
   for (int i = 0; i < NUM_LEDS; i++) {
     digitalWrite(ledPins[i], LOW);
   }
+  for (int i = 0; i < 3; i++) {
+    int randomLed;
+    bool isUnique;
+    do {
+      isUnique = true;
+      randomLed = random(0, NUM_LEDS);
+      for (int j = 0; j < i; j++) {
+        if (litLeds[j] == randomLed) {
+          isUnique = false;
+          break;
+        }
+      }
+    } while (!isUnique);
+
+    if (i > 0) {
+      digitalWrite(ledPins[litLeds[i - 1]], LOW);
+    }
+
+    digitalWrite(ledPins[randomLed], HIGH);
+    litLeds[i] = randomLed;
+    delay(500);
+  }
+
+  delay(1000);
+
+  for (int i = 0; i < NUM_LEDS; i++) {
+    digitalWrite(ledPins[i], LOW);
+  }
+
+  delay(500);
 
