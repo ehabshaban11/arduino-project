@@ -61,3 +61,7 @@ void loop() {
 
   delay(500);
 
+  tone(BUZZER_PIN, 1000);
+  delay(200);
+  noTone(BUZZER_PIN);
+
