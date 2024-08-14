@@ -1,0 +1,20 @@
+#define LED_RED_PIN 11
+#define LED_YELLOW_PIN 10
+#define LED_GREEN_PIN 6
+#define LED_BLUE_PIN 9
+
+#define BUTTON_RED_PIN 2
+#define BUTTON_YELLOW_PIN 3
+#define BUTTON_GREEN_PIN 4
+#define BUTTON_BLUE_PIN 12
+
+#define BUZZER_PIN 5
+
+#define NUM_LEDS 4
+
+#define WIN_TONE_FREQ 1500
+#define LOSE_TONE_FREQ 500
+
+int ledPins[] = {LED_RED_PIN, LED_YELLOW_PIN, LED_GREEN_PIN, LED_BLUE_PIN};
+int buttonPins[] = {BUTTON_RED_PIN, BUTTON_YELLOW_PIN, BUTTON_GREEN_PIN, BUTTON_BLUE_PIN};
+int litLeds[3];
