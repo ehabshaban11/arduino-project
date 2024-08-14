@@ -115,6 +115,16 @@ void loop() {
     noTone(BUZZER_PIN);
     digitalWrite(LED_GREEN_PIN, LOW);
   }
+  bool newGameStarted = false;
+  while (!newGameStarted) {
+    for (int j = 0; j < NUM_LEDS; j++) {
+      if (digitalRead(buttonPins[j]) == LOW) {
+        newGameStarted = true;
+        break;
+      }
+    }
+  }
+}
 
 
 
