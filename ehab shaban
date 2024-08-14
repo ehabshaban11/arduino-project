@@ -100,5 +100,21 @@ void loop() {
       break;
     }
   }
+  unsigned long totalTime = endTime - startTime;
+
+  if (!isCorrect || totalTime > 10000) {
+    digitalWrite(LED_RED_PIN, HIGH);
+    tone(BUZZER_PIN, LOSE_TONE_FREQ);
+    delay(1000);
+    noTone(BUZZER_PIN);
+    digitalWrite(LED_RED_PIN, LOW);
+  } else {
+    digitalWrite(LED_GREEN_PIN, HIGH);
+    tone(BUZZER_PIN, WIN_TONE_FREQ);
+    delay(1000);
+    noTone(BUZZER_PIN);
+    digitalWrite(LED_GREEN_PIN, LOW);
+  }
+
 
 
